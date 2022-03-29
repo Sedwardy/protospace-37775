@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :tweets, only: :create
+  resources :prototypes, only: [ :index, :new, :create ]
   get 'prototypes/index'
   root to: "prototypes#index"
 end
