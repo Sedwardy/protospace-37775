@@ -2,12 +2,12 @@
   <div class="inner">
     <% if user_signed_in? %> <%# ログインしているときは以下を表示する %>
       <div class="greeting"> <%# <div class="greeting"> %>
-        こんにちは、 <%# こんにちは、 %>
-        <%= link_to current_user.nickname, prototypes_index_path, class: :greeting__link%> <%# <%= link_to "ユーザー名さん", root_path, class: :greeting__link%>        
+        こんにちは <%# こんにちは、 %>
+        <%= link_to current_user.nickname, user_path(current_user.id), class: :greeting__link%> <%# <%= link_to "ユーザー名さん", root_path, class: :greeting__link%>        
       </div> <%# </div> %>
     <% end%> <%# // ログインしているときは上記を表示する %>
     <div class="card__wrapper">
-      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
+      <%= render partial:'prototype', collection: @prototypes%> <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
     </div>
   </div>
 </main>
